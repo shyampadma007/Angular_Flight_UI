@@ -1,0 +1,45 @@
+.userpage{
+    min-height: 100px;
+    max-width: 1000px !important;
+    margin: 0 auto 25px;
+    width: 80% !important;
+}
+.userpage .form-group{
+    margin-bottom: 15px;
+}
+
+.inner{
+    width: 10% !important;
+    height: 10% !important;
+    display: inline !important;
+}
+
+label {
+    display: inline;
+    margin-top: 10px;
+  }
+
+  .upFlight{
+    min-height: 200px;
+    display: table;
+    margin: 0px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-top: 30px;
+}
+.upFlight .form-group{
+    margin-bottom: 15px;
+}
+
+.fluid-custom{
+    left: 14%;
+    top: 10%;
+    height: 150px;
+    background: -webkit-linear-gradient(left, #42275a , #734b6d);
+    color:white
+}
+
+.nav-link{
+    color: #ffe9a8;
+}

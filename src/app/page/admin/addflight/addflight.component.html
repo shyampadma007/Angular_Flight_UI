@@ -1,0 +1,82 @@
+<app-adminnavbar></app-adminnavbar>
+
+<div *ngIf="isSuccessful"> {{responseFlightString}}</div>
+<!-- ADD FLIGHT TABLE -->
+<div class="container">
+	<h2 class="mb-4 mt-2">Welcome Admin</h2>     
+    <div  class="adminForm bg-light mt-4">
+    	<form #flightForm="ngForm"  (ngSubmit)="saveFlight(flightForm)"> 
+	        <div class="row">  
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="airline" class="form-label">Airline Name</label>
+		        <select id='flightname' name='flightname' [(ngModel)]="flightname" class="form-control">
+		            <option *ngFor="let item of airlineList" [value]="item">
+		              {{item}}
+		            </option>    
+		        </select> 
+		      </div>         
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="flightid" class="form-label">Flight Number</label>
+		        <input type="text" name="flightid" [(ngModel)]="flightid" class="form-control">
+		      </div>   
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="source" class="form-label">Source</label>
+		        <select id='source' name='source' [(ngModel)]="source" class="form-control">
+		          <option *ngFor="let item of cityList" [value]="item">
+		            {{item}}
+		          </option>    
+		      </select>
+		      </div>       
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="destination" class="form-label">Destination</label>
+		        <select id='destination' name='destination' [(ngModel)]="destination" class="form-control">
+		          <option *ngFor="let item of cityList" [value]="item">
+		            {{item}}
+		          </option>    
+		      </select>
+		      </div> 
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="departuretime" class="form-label">Departure Time</label>
+		        <input type="datetime" name="departuretime" [(ngModel)]="departuretime" onfocus="(this.type='datetime-local')" class="form-control">
+		      </div> 
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="arrivaltime" class="form-label">Arrival Time</label>
+		        <input type="text" name="arrivaltime" [(ngModel)]="arrivaltime" onfocus="(this.type='datetime-local')" class="form-control">
+
+				<!--<input class="datepicker" data-date-format="mm/dd/yyyy"> -->
+		      </div> 
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="seat" class="form-label">Available  Seats</label>
+		        <input type="text" name="seat" [(ngModel)]="seat" value="100" class="form-control">
+		      </div> 
+		      <!-- <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="seat" class="form-label">No of Seats Required</label>
+		        <input type="text" name="seat" [(ngModel)]="seat" class="form-control">
+		      </div> -->
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="price" class="form-label">Ticket Price</label>
+		        <input type="text" name="price" [(ngModel)]="price" class="form-control">
+		      </div>
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="mealtype" class="form-label">Meal Type</label>
+		        <select id='mealtype' name='mealtype' [(ngModel)]="mealtype" class="form-control">
+		          <option *ngFor="let item of mealList" [value]="item">
+		            {{item}}
+		          </option>    
+		      </select>
+		      </div>
+		      <div class="col-sm-4 col-xs-12 form-group">
+		        <label for="status" class="form-label">Status</label>
+		        <select id='status' name='status' [(ngModel)]="status" class="form-control">
+		          <option *ngFor="let item of statusList" [value]="item">
+		            {{item}}
+		          </option>    
+		      </select>
+		      </div> 
+		      <div class="col-sm-12">
+		        <button type="submit" class="btn btn-primary">Submit</button>
+		      </div>  
+			</div>          
+        </form>
+    </div>
+</div>

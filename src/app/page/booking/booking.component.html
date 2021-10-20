@@ -1,0 +1,116 @@
+<app-booknavbar></app-booknavbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 box-content">
+            <div class="row">
+                <div class="col col-lg-3">
+                    <p>Flight Id : <strong><span>{{this.flightidList.flightid}}</span></strong><br></p>
+                    <p>Flight Name : <strong><span>{{this.flightidList.flightname}}</span></strong></p>
+                </div>
+                <div class="col col-lg-3">
+                    <p>Source : <strong><span>{{this.flightidList.source}}</span></strong><br></p>
+                    <strong><span>{{this.flightidList.departuretime}}</span></strong>
+                </div>
+                <div class="col col-lg-3">
+                    <p>Destination : <strong><span>{{this.flightidList.destination}}</span></strong><br></p>
+                    <strong><span>{{this.flightidList.arrivaltime}}</span></strong>
+                </div>
+                <div class="col col-lg-3">
+                    <p>Meal Type : <strong><span>{{this.flightidList.mealtype}}</span> </strong><br></p>
+                    <p>Price : <strong><span>{{this.flightidList.price}}</span></strong></p>
+                </div>
+            </div>
+            <br>
+            <h3 class="my-4 purple">Traveller Details</h3>
+            <div class="row">
+                <!--<div class="col-md-8 box-content" style="max-height:420px">
+                    <div class="alert alert-info" role="alert">
+                        Note: Your booking details will be sent to this email address
+                    </div>
+                    <div class="container">-->
+                        <div class="col-lg-8 well">
+                            <div class="row">
+                                <form #bookingForm="ngForm" (ngSubmit)="addPassenger(bookingForm)">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4"> 
+                                                <label for="firstName">First Name</label>
+                                                <input type="text" placeholder="Enter First Name Here.." class="form-control" [(ngModel)]="firstName" name="firstName">
+                                            </div>
+                                            <div class="col-md-4"> 
+                                                <label>Last Name</label>
+                                                <input type="text" placeholder="Enter Last Name Here.." class="form-control" [(ngModel)]="lastName" name="lastName">
+                                            </div>
+                                            <div class="col-md-4"> 
+                                                <label>No Of Seats</label>
+                                                <input type="text" placeholder="Enter Seat Number Here.." class="form-control" [(ngModel)]="seat" name="seat">
+                                            </div>
+                                            
+                                            <div class="col-md-4"> 
+                                                <label>Phone Number</label>
+                                                <input type="text" placeholder="Enter Phone Number Here.." class="form-control" [(ngModel)]="phone" name="phone">
+                                            </div>
+                                            <div class="col-md-4"> 
+                                                <label>Email Address</label>
+                                                <input type="text" placeholder="Enter Email Address Here.." class="form-control" [(ngModel)]="email" name="email">
+                                            </div>
+                                            <!-- <div class="col-md-4"> 
+                                                <input #this.flightidList.flightid type="text" class="form-control" [(ngModel)]="flightid" name="flightid">
+                                            </div> -->
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="btn btn-warning">Add</button>
+                                        <br><br>
+                                    </div>
+                                </form>
+                                <div style="width:600px; height:200px; overflow:auto;">
+                                    <table class="table table-striped table-dark" id="travellerTbl" *ngIf="customerCheck">
+                                      <thead>
+                                        <tr>
+                                          <th>First Name</th>
+                                          <th>Last Name</th>
+                                          <th>Phone Number</th>
+                                          <th>Email</th>
+                                          <th>Seat</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let value of this.travellerList">
+                                          <td>{{value.firstName}}</td>
+                                          <td>{{value.lastName}}</td>
+                                          <td>{{value.phone}}</td>
+                                          <td>{{value.email}}</td>
+                                          <td>{{value.seat}}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header bg-success text-white text-uppercase">Fare Details</div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li class="list" type="number"><span class="pull-left"> Price for 1 Person</span>
+                                            <span class="pull-right"><i class="fa fa-rupee"></i> {{this.flightidList.price }}</span></li>
+                                            <br>
+                                        <li class="list" type="number"><span class="pull-left">You Pay</span>
+                                        </li>
+                                        <span class="pull-right" *ngIf="this.travellerList.length == 0"> <i
+                                            class="fa fa-rupee"></i>{{this.flightidList.price }}</span>
+                                        <span class="pull-right" *ngIf="this.travellerList.length > 0"> <i
+                                            class="fa fa-rupee"></i>{{this.totalamount}}</span>
+                                    </ul>
+                                    <button type="button" class="btn btn-danger" (click)="confirmBooking()">Proceed to
+                                        Payment</button>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

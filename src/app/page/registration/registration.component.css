@@ -1,0 +1,46 @@
+label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .card-container.card {
+    max-width: 400px !important;
+    padding: 25px 40px;
+  }
+
+  .card {
+    background-color: lightcyan;
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+
+.profile-img-card {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+ 
+  .image{
+    background-image: url('./../../../assets/images/User_profile.jpg') !important;
+    height: 100%;background-repeat: no-repeat;background-size: cover;
+  }
+
+  .regForm{
+    min-height: 200px;
+    display: table;
+}
+.regForm .form-group{
+    margin-bottom: 15px;
+}

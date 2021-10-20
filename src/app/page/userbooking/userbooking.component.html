@@ -1,0 +1,130 @@
+<app-booknavbar></app-booknavbar>
+<div class="container-fluid fluid-custom">
+  <form #searchFlight="ngForm" (ngSubmit)="onSubmit(searchFlight)">
+    <div class="form-row justify-content-center">
+      <div class="form-group col-sm-10">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="booking" id="inlineRadio1" value="oneway"> <!-- (change)="changeBooking($event)" [(ngModel)]="booking"-->
+            <label class="form-check-label" for="inlineRadio1">One Way</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="hidden" name="booking" id="inlineRadio2" value="roundtrip"> <!-- (change)="changeBooking($event)" -->
+          <!-- <label class="form-check-label" for="inlineRadio2">Round Trip</label> -->
+        </div> 
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2"> 
+          <label for="source">Source</label>
+          <select class="form-control" id='city' name='source' [(ngModel)]="source" > <!-- [(ngModel)]="source"-->
+            <option *ngFor="let item of cityValue" [value]="item">
+              {{item}}
+            </option>    
+        </select> 
+        </div>
+        <div class="col-md-2">
+          <label for="destination">Destination</label>
+            <select class="form-control" id='city' name='destination' [(ngModel)]="destination"> <!-- [(ngModel)]="destination" -->
+                <option *ngFor="let item of cityValue" [value]="item">
+                  {{item}}
+                </option>    
+            </select>
+        </div>
+        <div class="col-md-2">
+          <label for="departuretime">Depature</label>
+          <input  class="form-control" placeholder="Choose Date" id="datepicker" bsDatepicker name="departuretime" [(ngModel)]="departuretime">
+        </div>
+        <!--<div class="col-md-2"> 
+          <label for="return">Return</label>
+          <input  class="form-control" placeholder="Choose Date" id="datepicker" bsDatepicker [disabled]="exampleFlag"
+            name="return" ngModel>
+        </div> -->
+        <div class="col-md-2">
+          <br>
+          <button type="submit" class="btn btn-warning">Search</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div style="background-color: white;" class="panel panel-primary justify-content-center">
+  <div class="panel-heading">
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-responsive">
+      <thead >
+        <tr style="color: violet !important;">
+          <th class = "col-xs-4" *ngFor = "let column of headers">
+            {{column}}
+          </th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of flightList">
+            <td>{{row.flightid}} - {{row.flightname}}</td>
+            <td>{{row.departuretime}}</td>
+            <td>{{row.arrivaltime}}</td>
+            <td><i class="fa fa-rupee">{{row.price}}</i></td>
+            <td><button class="btn btn-success" style="margin-left: 10px" (click)="bookTicket(row.flightid,row.price)">Book</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <p>Welcome  {{user}} </p>
+<tr>
+  <br><tr><a routerLink="/bookinghistory">Booking History / PNR</a> </tr>
+</tr><br><br>
+
+<div class="userpage bg-light mt-8"></div>
+<form #searchFlight="ngForm" (ngSubmit)="onSubmit(searchFlight)"> 
+    <div class=" userpage form-group col-xs-12">           
+            <label for="source">Source</label>
+            <select class="form-control inner" id='city' name='source' [(ngModel)]="source">
+                <option *ngFor="let item of cityValue" [value]="item">
+                  {{item}}
+                </option>    
+            </select>           
+         
+            <label for="destination">Destination</label>
+            <select class="form-control inner" id='city' name='destination' [(ngModel)]="destination">
+                <option *ngFor="let item of cityValue" [value]="item">
+                  {{item}}
+                </option>    
+            </select>          
+         
+            <label for="departuretime">Date</label>
+            <input class="form-control inner" type="date" id="date" name="departuretime" [(ngModel)]="departuretime">           
+  
+            <button type="submit">Search Flight</button>        
+        </div>          
+    </form>
+
+
+    <table class="upFlight bg-light mt-4" id="users">
+      <tr>
+        <th class = "col-xs-4" *ngFor = "let column of headers">
+          {{column}}
+        </th><th>Action</th>
+      </tr>
+    
+      <tr *ngFor = "let row of flightList">
+        <td >
+          {{row.source}}
+        </td>
+        <td >
+          {{row.destination}}
+        </td>
+        <td >
+          {{row.departuretime}}
+        </td>
+        <td >
+          {{row.price}}
+        </td>
+        <td><button (click)="bookTicket(row.flightid)">Book</button></td>
+      </tr>
+    
+    </table>
+  -->
+

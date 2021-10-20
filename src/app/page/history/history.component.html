@@ -1,0 +1,41 @@
+<app-booknavbar></app-booknavbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-white mb-5">
+                <div id="print" class="card-heading clearfix border-bottom mb-4">
+                    <h4 class="card-title">Booking History</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                          <tr>
+                            <th>PNR Number</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email id</th>
+                            <th>Flight Id</th>
+                            <th>Status</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr id="historyList" *ngFor="let value of this.bookingHistory">
+                              <td>{{value.ticket_id}}</td>
+                            <td>{{ value.firstName}}</td>
+                            <td>{{value.lastName}}</td>
+                            <td>{{ value.email}}</td>
+                            <td> {{value.flightid}}</td>
+                            <td><p style="color:rgb(126, 212, 126)">Available</p></td>
+                            <td><i class="fa fa-rupee"></i>{{value.totalamount | number}}</td>  
+                            <td><button type="submit" class="btn btn-primary" (click)="openPDF()">Download</button></td>                         
+                          </tr>
+                        </tbody>
+                      </table>                
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
